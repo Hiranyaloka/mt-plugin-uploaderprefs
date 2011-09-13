@@ -1,0 +1,27 @@
+id: 'UploaderPrefs'
+key: 'UploaderPrefs'
+name: 'Uploader Preferences'
+description: 'Set prefererences for file uploads.'
+author_name: 'Rick Bychowski'
+author_link: http://hiranyaloka.com/
+plugin_link: http://hiranyaloka.com/website_design_encinitas/software/uploaderprefs-plugin-for-melody-and-mt4.html
+version: 0.1
+
+callbacks:
+  MT::App::CMS::template_source.asset_options: $UploaderPrefs::UploaderPrefs::Plugin::asset_options_src
+
+options:
+  fieldsets:
+    uploader_options:
+      label: File Upload Options
+  create_entry_with_file_default:
+    type: checkbox
+    label: 'Create entry with file option is selected by default?'
+    hint: 'Check this box to have the CreateEntryWithFile box checked by default'
+    tag: 'CreateEntryWithFile?'
+    order: 1
+    default: 0
+    scope: blog
+    fieldset: uploader_options
+    
+
