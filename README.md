@@ -8,10 +8,10 @@ I don't like the default "Asset Upload" default options, which is to create a ne
 
 Set your preferences in the plugin settings.  Currently it supports two options, which can be set independently:
 
-# "CREATE ENTRY WITH FILE" OPTION.
+## "CREATE ENTRY WITH FILE" OPTION.
 The plugin default is for the "Create new entry with file" option to be deselected. (Melody's default is for that checkbox to be selected).
 
-# ASSET UPLOAD DIRECTORY
+## ASSET UPLOAD DIRECTORY
 The MT default option is the site or archive root. UploaderPrefs default path is based on the date.
 
 These options may also be over-ridden within the form dialogue.
