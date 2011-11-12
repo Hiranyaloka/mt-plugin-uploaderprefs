@@ -5,10 +5,11 @@ description: 'Set prefererences for file uploads.'
 author_name: 'Rick Bychowski'
 author_link: http://hiranyaloka.com/
 plugin_link: http://hiranyaloka.com/website_design_encinitas/software/uploaderprefs-plugin-for-melody-and-mt4.html
-version: 0.1
+version: 0.2
 
 callbacks:
   MT::App::CMS::template_source.asset_options: $UploaderPrefs::UploaderPrefs::Plugin::asset_options_src
+  MT::App::CMS::template_source.asset_upload: $UploaderPrefs::UploaderPrefs::Plugin::asset_upload_src
 
 options:
   fieldsets:
@@ -18,10 +19,15 @@ options:
     type: checkbox
     label: 'Create entry with file option is selected by default?'
     hint: 'Check this box to have the CreateEntryWithFile box checked by default'
-    tag: 'CreateEntryWithFile?'
     order: 1
     default: 0
     scope: blog
     fieldset: uploader_options
-    
-
+  site_root_as_last_option:
+    type: checkbox
+    label: 'Move the root directory as the last option.'
+    hint: 'Check this box to make the date-based directory be the default.'
+    order: 2
+    default: 1
+    scope: blog
+    fieldset: uploader_options
