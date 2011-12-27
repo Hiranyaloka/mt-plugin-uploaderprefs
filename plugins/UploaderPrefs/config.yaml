@@ -1,33 +1,25 @@
 id: 'UploaderPrefs'
 key: 'UploaderPrefs'
-name: 'Uploader Preferences'
-description: 'Set prefererences for file uploads.'
-author_name: 'Rick Bychowski'
+name: <__trans phrase="Uploader Preferences">
+description: <__trans phrase="Set defaults for file upload dialogue.">
+author_name: <__trans phrase="Rick Bychowski">
 author_link: http://hiranyaloka.com/
 plugin_link: http://hiranyaloka.com/website_design_encinitas/software/uploaderprefs-plugin-for-melody-and-mt4.html
-version: 0.2
+blog_config_template: blog_config.tmpl
+l10n_class: 'UploaderPrefs::L10N'
+version: 0.3
 
 callbacks:
   MT::App::CMS::template_source.asset_options: $UploaderPrefs::UploaderPrefs::Plugin::asset_options_src
   MT::App::CMS::template_source.asset_upload: $UploaderPrefs::UploaderPrefs::Plugin::asset_upload_src
 
-options:
-  fieldsets:
-    uploader_options:
-      label: File Upload Options
-  create_entry_with_file_default:
-    type: checkbox
-    label: 'Create entry with file option is selected by default?'
-    hint: 'Check this box to have the CreateEntryWithFile box checked by default'
-    order: 1
-    default: 0
+settings:
+  upload_folder_base:
+    default: 'assets/'
     scope: blog
-    fieldset: uploader_options
-  site_root_as_last_option:
-    type: checkbox
-    label: 'Move the root directory as the last option.'
-    hint: 'Check this box to make the date-based directory be the default.'
-    order: 2
+  date_based_default:
     default: 1
     scope: blog
-    fieldset: uploader_options
+  create_entry_with_file_default:
+    default: 0
+    scope: blog

@@ -1,0 +1,32 @@
+<mtapp:setting
+  id="upload_folder_base"
+  label="<__trans phrase="Upload Folder Base">"
+  label_class="uploaderprefs-text-setting"
+  hint="<__trans phrase="A folder within the site root to place your assets (eg assets/).">"
+  required="0"
+  show_hint="1">
+    <input type="text" name="upload_folder_base" id="upload_folder" 
+       value="<mt:var name="upload_folder_base">" />
+</mtapp:setting>
+
+<mtapp:setting
+  id="date_based_default"
+  label="<__trans phrase="Make the date-based folder option the first choice">"
+  label_class="uploaderprefs-checkbox"
+  hint="<__trans phrase="Check this box to make the date-based directory appear as the first choice.">"
+  required="0"
+  show_hint="1">
+    <input type="checkbox" name="date_based_default" id="date_based" 
+       value="1" <mt:if name="date_based_default"> checked="checked"</mt:if /> />
+</mtapp:setting>
+
+<mtapp:setting
+  id="create_entry_with_file_default"
+  label="<__trans phrase="Create Entry with File?">"
+  label_class="uploaderprefs-checkbox"
+  hint="<__trans phrase="Check this box to have the CreateEntryWithFile box checked by default.">"
+  required="0"
+  show_hint="1">
+    <input type="checkbox" name="create_entry_with_file_default" id="create_entry_with_file" 
+       value="1" <mt:if name="create_entry_with_file_default"> checked="checked"</mt:if> />
+</mtapp:setting>

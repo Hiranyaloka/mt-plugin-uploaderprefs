@@ -45,15 +45,19 @@ sub asset_upload_src {
   my $blog = $app->blog;
   my $blog_id = $blog->id;  
   my $plugin = MT->component("UploaderPrefs");
-  
+# prepend upload folder base to middle path
+  my $upload_folder_base = $plugin->get_config_value(
+    'upload_folder_base' , 'blog:' . $blog_id );
+  if ($upload_folder_base) {
+    $$tmpl = '<mt:Var name="middle_path" value="' . $upload_folder_base . '" prepend="1">'.$$tmpl;
+  } 
 # move site root to the end of the options list
-  my $site_root_as_last_option = $plugin->get_config_value(
-    'site_root_as_last_option' , 'blog:' . $blog_id );
-  if ($site_root_as_last_option) {
-    $$tmpl = '<mt:loop name="extra_paths"><mt:var name="middle_path" value="$path" escape="html"></mt:loop>'.$$tmpl;
+  my $date_based_default = $plugin->get_config_value(
+    'date_based_default' , 'blog:' . $blog_id );
+  if ($date_based_default) {
+    $$tmpl = '<mt:loop name="extra_paths"><mt:var name="middle_path" value="$path" escape="html"></mt:loop>' . $$tmpl;
   	$$tmpl =~ s/name="selected"/name="__last__"/;
   } 
-
 }
 
 1;
